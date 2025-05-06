@@ -1,7 +1,7 @@
-from dagster import Definitions
-from dagster_orchestration.assets import dbt_assets, resources
+from dagster import Definitions, load_assets_from_modules
+from .assets import resources
 
 defs = Definitions(
-    assets=dbt_assets,
+    assets=load_assets_from_modules([assets]),
     resources=resources
 )
